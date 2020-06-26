@@ -1,0 +1,29 @@
+*.sqlite3*
+db.sqlite3
+*.pyc
+.idea*
+**/dicoms/migrations/
+*/__pycache__/*
+subject_lists/
+*/migrations/*
+dicoms/templates/old_scripts/watcher.py
+*.swp
+dicoms/test.py
+*.out
+*.err
+
+venv/
+
+# Unprocessed folder
+## ignoring all files in it
+bids_unprocessed/*
+## except for one file so that unprocessed appears in our project repo/git history
+!bids_unprocessed/.gitkeep
+dcm2bids/
+dcm2bids_files/*
+!abcd_dcm2bids_conf.json
+!ELABE.json
+!EXITO.json
+!hfd_nacq.json
+!parkinsons.json
+!washu_conf.json

@@ -1,0 +1,215 @@
+{
+  "Subject": "sub-",
+  "Session": "ses-",
+  "Task": "task-",
+  "Acquisition": "acq-",
+  "Contrast Enhancing Agent": "ce-",
+  "Reconstruction": "rec-",
+  "Phase-Encoding Direction": "dir-",
+  "Run": "run-",
+  "Corresponding modality": "mod-",
+  "Echo": "echo-",
+  "Recording": "recording-",
+  "Processed": "proc-",
+  "anat": [
+    "T1w",
+    "T2w",
+    "T1rho",
+    "T1map",
+    "T2map",
+    "T2star",
+    "FLAIR",
+    "FLASH",
+    "PD",
+    "PDmap",
+    "PDT2",
+    "inplaneT1",
+    "inplaneT2 angio",
+    "defacema",
+    "sk"
+  ],
+  "func": [
+    "bold",
+    "sbref",
+    "events",
+    "physio",
+    "stim"
+  ],
+  "dwi": [
+    "dwi",
+    "bvec",
+    "bval"
+  ],
+  "fmap": [
+    "phasediff",
+    "phase1",
+    "phase2",
+    "magnitude1",
+    "magnitude2",
+    "fieldmap",
+    "epi"
+  ],
+  "beh": [
+    "events",
+    "stim",
+    "physio"
+  ],
+  "meg": [
+    "meg",
+    "channels",
+    "photo",
+    "coordsytem",
+    "headshape"
+  ],
+  "required": {
+    "bold": "task-",
+    "epi": "dir-",
+    "beh": "task-",
+    "meg": "task-"
+  },
+  "optional": {
+    "_anat": "Anatomical categories below",
+    "T1w": [
+      "acq-",
+      "ce-",
+      "rec-"
+    ],
+    "T2w": [
+      "acq-",
+      "ce-",
+      "rec-"
+    ],
+    "Trho": [
+      "acq-",
+      "ce-",
+      "rec-"
+    ],
+    "T1map": [
+      "acq-",
+      "ce-",
+      "rec-"
+    ],
+    "T2map": [
+      "acq-",
+      "ce-",
+      "rec-"
+    ],
+    "T2star": [
+      "acq-",
+      "ce-",
+      "rec-"
+    ],
+    "FLAIR": [
+      "acq-",
+      "ce-",
+      "rec-"
+    ],
+    "FLASH PD": [
+      "acq-",
+      "ce-",
+      "rec-"
+    ],
+    "PDmap": [
+      "acq-",
+      "ce-",
+      "rec-"
+    ],
+    "PDT2": [
+      "acq-",
+      "ce-",
+      "rec-"
+    ],
+    "inplaneT1": [
+      "acq-",
+      "ce-",
+      "rec-"
+    ],
+    "inplaneT2": [
+      "acq-",
+      "ce-",
+      "rec-"
+    ],
+    "defacemask": [
+      "acq-",
+      "ce-",
+      "rec-",
+      "mod-"
+    ],
+    "_func": "Functional Categories Below",
+    "bold": [
+      "acq-",
+      "ce-",
+      "rec-",
+      "dir",
+      "echo-"
+    ],
+    "physiostim": [
+      "acq-",
+      "rec-",
+      "recording-",
+      "proc"
+    ],
+    "_dwi": "Diffusion Weighted Images Below",
+    "dwi": [
+      "acq-",
+      "dir-"
+    ],
+    "bvec": [
+      "acq-",
+      "dir-"
+    ],
+    "bval": [
+      "acq-",
+      "dir-"
+    ],
+    "_fmap": "I don't know what fmap stands for",
+    "phasediff": [
+      "acq-"
+    ],
+    "phase1": [
+      "acq-"
+    ],
+    "phase2": [
+      "acq-"
+    ],
+    "magnitude1": [
+      "acq-"
+    ],
+    "magnitude2": [
+      "acq-"
+    ],
+    "fieldmap": [
+      "acq-"
+    ],
+    "epi": [
+      "acq-",
+      "ce-"
+    ],
+    "_beh": "Behavioral Optional Labels Below",
+    "events": [],
+    "stim": [],
+    "physic": [],
+    "_meg": "What ever meg stands for optional labels below",
+    "meg": [
+      "acq-",
+      "proc-"
+    ],
+    "channels": [
+      "acq-",
+      "proc"
+    ],
+    "photo": [
+      "acq-",
+      "proc"
+    ],
+    "coordsystem": [
+      "acq-",
+      "proc-"
+    ],
+    "headshape": [
+      "acq-",
+      "proc"
+    ]
+  }
+}
+

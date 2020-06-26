@@ -1,0 +1,91 @@
+{% extends 'dicoms/base.html' %}
+
+{% block content %}
+  {% load static %}
+  {% load bootstrap4 %}
+  <script>
+      let URL = "{% url 'create_dcm2bids_config' %}";
+      let bidSpec = JSON.parse('{{ test | escapejs }}');
+      let required = bidSpec.required;
+      //console.log(bidSpec)
+      //console.log(required)
+
+
+      function get_value(sel) {
+          let bidSpec = JSON.parse('{{ test | escapejs }}');
+          bidSpec["choice"] = sel.value;
+          let series = sel.className;
+          bidSpec['series'] = series;
+          let requiredLabel = check_required(bidSpec);
+          let optionalLabels = check_optional(bidSpec);
+          $("#" + series + " .required_label .required_label").val(requiredLabel);
+          hide_if_ignore(bidSpec)
+
+      }
+
+  </script>
+  <script src="{% static "jss/config_builder.js" %}">
+  </script>
+
+  <style>
+    .dropdown-submenu {
+      position: relative;
+    }
+
+    .dropdown-submenu .dropdown-menu {
+      top: 0;
+      left: 100%;
+      margin-top: -1px;
+    }
+  </style>
+  <!--
+<script>
+    let URL2 = "{% url 'create_dcm2bids_config' %}"
+    let data = {'pipe': 'wrench'}
+    $.post(URL2, data, function (response){
+        if (response === 'success'){ alert('Yay!')}
+        else {alert('Error! :(')}
+    })
+</script>
+-->
+  <head>
+    <style>
+      form {
+        display: inline-grid;
+      }
+    </style>
+  </head>
+
+
+  {% csrf_token %}
+  <form id="build_conversion_form" action="" method="post">
+    {% csrf_token %}
+  {% for session in sessions %}
+    <div>{{ session.Subject }}, {{ session.Path }}</div>
+    {% endfor %}
+
+    <div class="transfer-dicoms">
+      Remote Server:<input type="text" name="remote-server" value=""><br>
+      Remote Path:<input type="text" name="remote-path" value=""><br>
+      User Name:<input type="text" name="remote-user" value=""><br>
+      Password:<input type="password" name="remote-password" value=""><br>
+    </div>
+    <input id="make_new_boolean" name="make_new_boolean" hidden="true" value="False">
+    <input name="generate_convert_file" id="generate_form_button" value="Transfer Subjects" type="submit"
+           action="{% url 'create_dcm2bids_config' %}" method="post" size="55"><br>
+    <div name="create_conversion_file" hidden="true">{% url 'create_dcm2bids_config' %}</div>
+  </form>
+  </form>
+
+  <script>
+      $(document).ready(function () {
+          $('.dropdown-submenu a.test').on("click", function (e) {
+              $(this).next('ul').toggle();
+              e.stopPropagation();
+              e.preventDefault();
+          });
+      });
+  </script>
+
+
+{% endblock %}

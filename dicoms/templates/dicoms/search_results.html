@@ -1,0 +1,68 @@
+{% extends 'dicoms/base.html' %}
+{% load static %}
+{% block content %}
+
+  <div id="study_detail">
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="pathbrowseModal" tabindex="-1" role="dialog"
+         aria-labelledby="pathbrowseModalLabel"
+         aria-hidden="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="pathbrowseModalLabel">Browse</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="popup_studies" class="list-group"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="search_results">
+        <div id="session_choice">
+          <h3>Select the Subject/Dates to be converted</h3>
+          <form method="post" action="{% url 'search_selection' %}">
+            {% csrf_token %}
+
+            <select id="search_selection" name="search_selection" multiple="multiple" size=10 data-select="false">
+              {% for session in sessions %}
+                <option id="{{ session.pk }}" value="{{ session.pk }}">
+                  {{ session.Subject }} {{ session.SessionDate|date:"Y M d" }}
+                </option>
+              {% endfor %}
+
+            </select>
+            <input type="submit" value="Choose These Sessions" class="btn btn-primary">
+          </form>
+          <button id="check_all" type="button" class="btn btn-primary">Select All</button>
+          <button id="uncheck_all" type="button" class="btn btn-primary btn-warning">Unselect All</button>
+          <script src={% static "jss/dicoms.js" %}>let sessions = "{{sessions}}"</script>
+          <br>
+          <br>
+
+          <p>To select individual subjects, hold down CNTRL and click to select subjects of interest.
+            <br>To select multiple consecutive rows of subjects, hold SHIFT and select the first and last of the rows of
+            interest. </p>
+
+
+        </div>
+        
+       
+      </div>
+
+    </div>
+  </div>
+
+  </div>
+{% endblock %}

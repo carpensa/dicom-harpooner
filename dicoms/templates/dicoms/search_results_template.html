@@ -1,0 +1,22 @@
+{% extends 'dicoms/base.html' %}
+{% block content %}
+    <div>{{ search.subject_search }}</div>
+    <div>{{ search.study_search }}</div>
+    <div>{{ search.date_range_alpha }}</div>
+    <div>{{ search.date_range_omega }}</div>
+
+
+    <form method = "post" action = "{% url 'search_selection' %}">
+    {% csrf_token %}
+
+    <select name="search_selection" multiple= "multiple" size=10>
+        {% for session in sessions %}
+            <option value="{{ session.pk }}">
+              {{ session.Subject }} {{ session.SessionDate|date:"Y M d" }}
+            </option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Choose These Sessions">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'dicoms/base.html' %}
+{% load static %}
+{% block content %}
+    <h1>Well something finished, maybe even successfully.</h1>
+    <h2>Life isn't about certainty.</h2>
+  <br>
+  <div>
+  {%  if host %}
+    Check for converted files here on remote host: {{ host }}
+    at {{ destination }}
+  {% endif %}
+  Converted files are also available locally at: {{ output_path }}
+  </div>
+{% endblock %}
