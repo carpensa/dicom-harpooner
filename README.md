@@ -4,9 +4,10 @@ ImageSearcher is a gui resource designed to allow a user to search for a session
 
 ## Installation
 - `git clone https://gitlab.com/Fair_lab/ImageSearcher.git`
-- `set up a python 3 virtual environment`
-- `venv --python=<your python 3 path>`
+- set up a python 3 virtual environment (Dependencies require 3.6 or greater
+- `virtualenv venv --python=<your python 3 path>`
 - `source venv/bin/activate`
+- edit requirements.txt to reflect most up-to-date versions of packages listed
 - `pip install -r requirements.txt`
 - `python manage.py makemigrations`
 - `python manage.py migrate`

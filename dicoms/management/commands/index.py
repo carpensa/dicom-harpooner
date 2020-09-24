@@ -23,7 +23,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if options['directory']:
             index_dicoms(options['directory'])
-        elif not options['directories'] and settings.BASE_DICOM_DIR:
+        elif not options['directory'] and settings.BASE_DICOM_DIR:
             print('settings.BASE_DICOM_DIR', settings.BASE_DICOM_DIR)
             for directory in settings.BASE_DICOM_DIR:
                 print('directory', directory)
